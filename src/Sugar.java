@@ -38,13 +38,13 @@ public class Sugar {
             case "Без сахара":
                 this.sugarPrice = 0;
                 break;
-            case "1 чайная ложка":
+            case "1 чайная ложка сахара":
                 this.sugarPrice = 5;
                 break;
-            case "2 чайные ложки":
+            case "2 чайные ложки сахара":
                 this.sugarPrice = 10;
                 break;
-            case "3 чайные ложки":
+            case "3 чайные ложки сахара":
                 this.sugarPrice = 15;
                 break;
             default:
