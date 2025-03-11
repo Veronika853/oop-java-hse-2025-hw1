@@ -35,16 +35,16 @@ public class Sugar {
         this.sugarLevel = sugarLevel;
 
         switch (sugarLevel) {
-            case "Без сахара":
+            case "Без":
                 this.sugarPrice = 0;
                 break;
-            case "1 чайная ложка сахара":
+            case "1 чайная ложка":
                 this.sugarPrice = 5;
                 break;
-            case "2 чайные ложки сахара":
+            case "2 чайные ложки":
                 this.sugarPrice = 10;
                 break;
-            case "3 чайные ложки сахара":
+            case "3 чайные ложки":
                 this.sugarPrice = 15;
                 break;
             default:
