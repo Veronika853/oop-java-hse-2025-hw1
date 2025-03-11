@@ -54,6 +54,6 @@ public class Coffee {
 
     public String toString() {
         //     // Напишите код здесь (опционально)
-        return "Coffee{name='" + name + "', basePrice=" + basePrice + " руб.}";
+        return String.format("%s (Цена: %.2f руб.)", name, basePrice);
     }
 }
