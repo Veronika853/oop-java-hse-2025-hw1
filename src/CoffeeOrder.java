@@ -43,21 +43,37 @@ public class CoffeeOrder {
                 System.out.printf("%d) %s\n", i + 1, coffees[i]);
             }
             System.out.print("Введите номер опции для кофе: ");
+            if (!scanner.hasNextInt()) {
+                System.out.println("Некорректный ввод. Введите число.");
+                scanner.next();
+                continue;
+            }
             int coffeeChoice = scanner.nextInt() - 1;
             if (coffeeChoice < 0 || coffeeChoice >= coffees.length) {
                 System.out.println("Некорректный выбор, попробуйте снова.");
                 continue;
             }
 
-            System.out.println("Выберите сахар:");
-            for (int i = 0; i < sugars.length; i++) {
-                System.out.printf("%d) %s\n", i + 1, sugars[i].getSugarDescription());
-            }
-            System.out.print("Введите номер опции для сахара: ");
-            int sugarChoice = scanner.nextInt() - 1;
-            if (sugarChoice < 0 || sugarChoice >= sugars.length) {
+            int sugarChoice;
+            while (true) {
+                System.out.println("Выберите сахар:");
+                for (int i = 0; i < sugars.length; i++) {
+                    System.out.printf("%d) %s\n", i + 1, sugars[i].getSugarDescription());
+                }
+                System.out.print("Введите номер опции для сахара: ");
+
+                if (!scanner.hasNextInt()) {
+                    System.out.println("Некорректный ввод. Введите число.");
+                    scanner.next();
+                    continue;
+                }
+                sugarChoice = scanner.nextInt() - 1;
+                scanner.nextLine();
+
+                if (sugarChoice >= 0 && sugarChoice < sugars.length) {
+                    break;
+                }
                 System.out.println("Некорректный выбор, попробуйте снова.");
-                continue;
             }
 
             double totalPrice = coffees[coffeeChoice].getBasePrice() + sugars[sugarChoice].getSugarPrice();
@@ -66,8 +82,6 @@ public class CoffeeOrder {
                     sugars[sugarChoice].getSugarLevel().toLowerCase(), totalPrice);
 
             String response;
-            scanner.nextLine();
-
             do {
                 System.out.print("Хотите заказать ещё? (Да/Выход): ");
                 response = scanner.nextLine().trim().toLowerCase();
